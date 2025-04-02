@@ -7,10 +7,10 @@
             "url_depth":0
             },
         "link_parser": {
-            "special_instructions":""
+            "special_instructions": "Prefer files named like Y_<year>_e"
             },
         "report_parser": {
-            "special_instructions": "Only keep VW division data. Ignore the automotive and financial services divisions."
+            "special_instructions": "Only keep volkswagen division data. Ignore the automotive and financial services divisions."
         },
         "data_consolidator":
         {

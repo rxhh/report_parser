@@ -143,14 +143,20 @@ For example:
 __2. consolidate__
 
     reportparser --id volkswagen --consolidate
-    
+
+This uses OpenAI to consolidate all the data generated above into CSVs by year. The following files will be generated:
+
+    ./data/\<company>/balance_sheet.csv
+    ./data/\<company>/cash_flow_statement.csv
+    ./data/\<company>/income_statement.csv
+
 
 # Configuration
 
-Schema:
+Example:
 
     {
-        "volkswagen": {
+    "volkswagen": {
             "company_name": "Volkswagen",
             "crawler": {
                 "root_url":"https://www.volkswagen-group.com/en/financial-reports-18134",
@@ -158,9 +164,19 @@ Schema:
                 "url_depth":0
                 },
             "link_parser": {
-                "special_instructions":""
-                }
+                "special_instructions": "Prefer files named like Y_<year>_e"
+                },
+            "report_parser": {
+                "special_instructions": "Only keep volkswagen division data. Ignore the automotive and financial services divisions."
             },
+            "data_consolidator":
+            {
+                "model": "o3-mini",
+                "balance_sheet_special_instructions": "",
+                "income_statement_special_instructions": "",
+                "cash_flow_statement_special_instructions": ""
+            }
+        }
     }
 
 Info:
@@ -171,4 +187,13 @@ Info:
         url_depth:      depth for deep crawling
     
     link_parser:
-        special_instructions: for the 
+        special_instructions: optional instructions to the AI for identifying annual reports
+    
+    report_parser:
+        special_instructions: optional instructions to the AI for parsing data from the annual reports
+    
+    data_consolidator:
+        model: which OpenAI model to run
+        balance_sheet_special_instructions: optional instructions to the AI for parsing balance sheet data
+        income_statement_special_instructions: optional instructions to the AI for parsing income statement data
+        cash_flow_statement_special_instructions: optional instructions to the AI for parsing cash flow statement sheet data    
