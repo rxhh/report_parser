@@ -1,0 +1,65 @@
+{
+    "volkswagen": {
+        "company_name": "Volkswagen",
+        "crawler": {
+            "root_url":"https://www.volkswagen-group.com/en/financial-reports-18134",
+            "deep":false,
+            "url_depth":0
+            },
+        "link_parser": {
+            "special_instructions":""
+            },
+        "report_parser": {
+            "special_instructions": "Only keep VW division data. Ignore the automotive and financial services divisions."
+        },
+        "data_consolidator":
+        {
+            "model": "o3-mini",
+            "balance_sheet_special_instructions": "",
+            "income_statement_special_instructions": "",
+            "cash_flow_statement_special_instructions": ""
+        }
+    },
+    "asml": {
+        "company_name": "ASML",
+        "crawler": {
+            "root_url":"https://www.asml.com/en/investors/annual-report",
+            "deep":true,
+            "url_depth":1
+            },
+        "link_parser": {
+            "special_instructions":"In case of duplicates, prefer GAAP adjusted."
+            },
+        "report_parser": {
+            "special_instructions": "Prefer VW group data over over other groups"
+        },
+        "data_consolidator":
+        {
+            "model": "o3-mini",
+            "balance_sheet_special_instructions": "",
+            "income_statement_special_instructions": "",
+            "cash_flow_statement_special_instructions": ""
+        }
+    },
+    "airliquide": {
+        "company_name": "Air Liquide",
+        "crawler": {
+            "root_url":"https://www.airliquide.com/investors/documents-presentations",
+            "deep":true,
+            "url_depth":1
+            },
+        "link_parser": {
+            "special_instructions":""
+            },
+        "report_parser": {
+            "special_instructions": ""
+        },
+        "data_consolidator":
+        {
+            "model": "o3-mini",
+            "balance_sheet_special_instructions": "",
+            "income_statement_special_instructions": "",
+            "cash_flow_statement_special_instructions": ""
+        }
+    }
+}

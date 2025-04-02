@@ -1,0 +1,32 @@
+[project]
+name = "report_parser"
+version = "0.1.0"
+description = "Default template for PDM package"
+readme = "README.md"
+requires-python = "==3.9.*"
+dependencies = [
+    "crawl4ai>=0.5.0.post8",
+    "ipykernel>=6.29.5",
+    "jupyter>=1.1.1",
+    "matplotlib>=3.9.4",
+    "pandas>=2.2.3",
+    "pip-system-certs>=4.0",
+    "pycryptodome>=3.22.0",
+    "pypdf2>=3.0.1",
+    "python-certifi-win32>=1.6.1",
+    "requests>=2.32.3",
+]
+authors = [
+    {name = "rxhh", email = "he.horatio@gmail.com"},
+]
+license = {text = "MIT"}
+
+[project.scripts]
+pdfscraper = "pdfscraper:run"
+reportparser = "reportparser:run"
+
+[tool.pdm]
+distribution = false
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"

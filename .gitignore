@@ -1,0 +1,8 @@
+.venv/
+.pdm-buid/
+__pycache__/
+*.egg-info/
+data/
+*.csv
+secret.py
+uv.lock
