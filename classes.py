@@ -167,13 +167,14 @@ class DataParser():
             ]
         expected_income_statement = [
             "total_revenue", "total_expenses", "net_gains", "net_losses",
-            "net_income", "earnings_per_share"
+            "earnings_per_share"
             ]
         
         expected_cash_flow_statement = [
             "cash_and_cash_equivalents_at_beginning_of_period",
             "cash_and_cash_equivalents_at_end_of_period",
-
+            "cash_from_operations", "cash_from_investing", "cash_from_financing",
+            "net_change_in_cash", "free_cash_flow"
             ]
 
         with open(pdf_path, "rb") as infile:
